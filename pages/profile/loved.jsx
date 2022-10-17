@@ -2,9 +2,9 @@ import React from 'react';
 import Item from "../../components/item";
 import Layout from "../../components/layout";
 
-function Bought(props) {
+function Loved(props) {
   return (
-    <Layout title="구매내역" canGoBack>
+    <Layout title="관심목록" canGoBack>
       <div className="flex flex-col space-y-5 pb-10  divide-y">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Item
@@ -21,4 +21,4 @@ function Bought(props) {
   );
 }
 
-export default Bought;
+export default Loved;
