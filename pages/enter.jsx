@@ -9,7 +9,7 @@ import useMutation from "../libs/client/useMutation";
 //Input Component에서 Expand해주어야한다.
 
 function Enter(props) {
-  const [mutation, {loading, data, error}] = useMutation('/api/users/enter')
+  const [enter, {loading, data, error}] = useMutation('/api/users/enter')
 
   /*submitting이 있으면 로딩중이라고 글짜 바뀜*/
   const [submitting, setSubmitting] = useState(false);
@@ -20,7 +20,7 @@ function Enter(props) {
 
   /*headers안넣어주면 server에서 데이터를 확인이 안됨 */
   const onValid = (data) => {
-    mutation(data)
+    enter(data)
   }
   return (
     <div className="mt-16 px-4">
