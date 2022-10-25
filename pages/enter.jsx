@@ -19,12 +19,13 @@ function Enter(props) {
   const { register, handleSubmit, reset } = useForm();
   const { register: tokenRegister, handleSubmit: tokenHandleSubmit } =
     useForm();
-  const [method, setMethod] = useState();
+  const [method, setMethod] = useState("email");
 
   const onEmailClick = () => {
     reset();
     setMethod("email");
   };
+
   const onPhoneClick = () => {
     reset();
     setMethod("phone");

@@ -1,7 +1,6 @@
-import { withIronSessionApiRoute } from "iron-session/next";
 import withHandler from "../../../libs/server/withHandler";
 import client from "../../../libs/server/client";
-import withApiSession from "../../../libs/server/withSession";
+import { withApiSession } from "../../../libs/server/withSession";
 
 async function handler(req, res) {
   const profile = await client.user.findUnique({
@@ -13,4 +12,9 @@ async function handler(req, res) {
   });
 }
 
-export default withApiSession(withHandler("GET", handler));
+export default withApiSession(
+  withHandler({
+    method: "GET",
+    handler,
+  })
+);
