@@ -32,21 +32,21 @@ async function handler(req, res) {
     },
   });
   if (phone) {
-    const message = await twilioClient.messages.create({
-      messagingServiceSid: process.env.TWILIO_MSID,
-      to: process.env.MY_PHONE,
-      body: `Your login token is ${payload}.`,
-    });
-    console.log(message);
+    // const message = await twilioClient.messages.create({
+    //   messagingServiceSid: process.env.TWILIO_MSID,
+    //   to: process.env.MY_PHONE,
+    //   body: `Your login token is ${payload}.`,
+    // });
+    // console.log(message);
   } else if (email) {
-    const email = await mail.send({
-      from: "lesson0186@gmail.com",
-      to: "lesson0186@gmail.com",
-      subject: "Your Carrot Market Verification Email",
-      text: `Your token is ${payload}`,
-      html: `<strong>Your token is ${payload}</strong>`,
-    });
-    console.log(email);
+    // const email = await mail.send({
+    //   from: "lesson0186@gmail.com",
+    //   to: "lesson0186@gmail.com",
+    //   subject: "Your Carrot Market Verification Email",
+    //   text: `Your token is ${payload}`,
+    //   html: `<strong>Your token is ${payload}</strong>`,
+    // });
+    // console.log(email);
   }
   return res.json({
     ok: true,
