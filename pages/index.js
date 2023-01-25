@@ -6,7 +6,7 @@ import useUser from "../libs/client/useUser";
 
 export default function Home() {
   const user = useUser();
-  console.log(user);
+
   return (
     <Layout title="홈" hasTabBar>
       <Head>
@@ -23,7 +23,7 @@ export default function Home() {
             hearts={1}
           />
         ))}
-        <FloatingButton href="/items/upload">
+        <FloatingButton href="/products/upload">
           <svg
             className="h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"

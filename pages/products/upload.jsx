@@ -3,11 +3,17 @@ import Button from "../../components/button";
 import Input from "../../components/input";
 import Layout from "../../components/layout";
 import TextArea from "../../components/textarea";
+import {useForm} from "react-hook-form";
 
 function Upload(props) {
+  const { register, handleSubmit } = useForm()
+  const onValid = (data) => {
+console.log(data)
+  }
+
   return (
     <Layout canGoBack title="Upload Product">
-      <form className="p-4 space-y-4">
+      <form className="p-4 space-y-4" onSubmit={handleSubmit(onValid)}>
         <div>
           <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
             <svg
@@ -27,16 +33,9 @@ function Upload(props) {
             <input className="hidden" type="file" />
           </label>
         </div>
-        <Input required label="Name" name="name" type="text" />
-        <Input
-          required
-          label="Price"
-          placeholder="0.00"
-          name="price"
-          type="text"
-          kind="price"
-        />
-        <TextArea name="description" label="Description" />
+        <Input register={register('name', {required : true})} label="Name" name="name" type="text" />
+        <Input register={register('price', {required : true})} label="Price" name="price" type="text" kind="price" />
+        <TextArea register={register('description', {required : true})} name="description" label="Description" />
         <Button text="Upload item" />
       </form>
     </Layout>

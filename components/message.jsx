@@ -4,7 +4,7 @@ export default function Message({message, avatarUrl, reversed,}) {
   return (
     <div
       className={cls(
-        "flex  items-start",
+        "flex  products-start",
         reversed ? "flex-row-reverse space-x-reverse" : "space-x-2"
       )}
     >
